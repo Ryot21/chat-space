@@ -6,7 +6,7 @@
   | email    | string  | null: false|
   | password | integer | null: false|
   # Association
-- has_many :groups
+- has_many :groups, through: :group_users
 - has_many :group_users
 - has_many :messages
 
@@ -17,7 +17,7 @@
   # Association
 - has_many   :messages
 - has_many   :group_users
-- belongs_to :user
+- belongs_to :users, through: :group_users
 
   ### TABLE3 group_users--------------------------------------
   |Column|Type|Options|
