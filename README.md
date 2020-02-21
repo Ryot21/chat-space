@@ -10,7 +10,7 @@
 - has_many :group_users
 - has_many :messages
 
-  ### TABLE2 groups--------------------------------------
+  ### TABLE2 group--------------------------------------
   |Column|Type|Options|
   |------|----|-------|
   | group_id | string  | null: false|
