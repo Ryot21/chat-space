@@ -1,0 +1,28 @@
+.chatside-bar
+  .side-header
+    .side-header__box
+      %p.side-header__box-username
+        masa
+      %ul.side-header__box-menu
+        %li.side-header__box-exit-user
+        =link_to "#" do
+          =icon('fas', 'edit', class: 'icon')
+          
+        %li.side-header__box-new-group
+        =link_to "#" do
+          =icon('fas', 'cog', class: 'icon')
+
+
+
+
+  .side-groups
+    %p.group__group-namebox
+      techcamp
+    %p.group__group-messagebox
+      まだメッセージがありません
+      
+  .side-groups
+    %p.group__group-namebox
+      techcamp
+    %p.group__group-messagebox
+      まだメッセージがありません
