@@ -13,8 +13,8 @@
           = icon('fas', 'cog', class: 'icon')
   .side-groups
     - current_user.groups.each do |group|
-      = link_to '#' do
+      = link_to group_messages_path(group) do
         %p.side-groups__group-namebox
           = group.name
         %p.side-groups__group-messagebox
-          まだメッセージがありません
+          = group.show_last_message

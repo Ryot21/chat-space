@@ -2,40 +2,37 @@
   .header
     .header__left-box
       %h2.header__left-box__current-group
-        test
+        = @group.name
       %ul.header__list
         Member : 
         %li.headert__list__list-name
-          name
+          - @group.users.each do |user|
+            = user.name
     .header__rigth-box 
-      = link_to "Edit", "#", class: 'btn'
+      = link_to edit_group_path(current_user) do
+        %input{type: "submit", class: "btn", value:'Edit'}
+      -# = link_to "Edit", "#", class: 'btn'
       -# 上記は、SCSSを[class: 'btu']に適用する。
   .messages
-    .message
-      .message__upper-info-box
-        %p.message__upper-info__talker
-          masa
-        %p.message__upper-info__date
-          2020-02-24(Mon) 21:00:00
-      .message__upper-info-text
-        おはよう！
-    .message
-      .message__upper-info-box
-        %p.message__upper-info__talker
-          masa
-        %p.message__upper-info__date
-          2020-02-24(Mon) 21:00:00
-      .message__upper-info-text
-        おはよう！
+    = render @messages
 
 
+
+  -# .form
+  -#   .new-message
+  -#     .input-box
+  -#       %input{type: "text", class: "input-box__message", placeholder: "type a message"}
+  -#       %label{class: "input-box__image-btn"}
+  -#         =icon('fa', 'image')
+  -#         %input{type: "file", class: "input-box__image__file"}
+  -#     %input{type: "submit", class: "submit-btn"}
 
   .form
     .new-message
-      .input-box
-        %input{type: "text", class: "input-box__message", placeholder: "type a message"}
-        %label{class: "input-box__image-btn"}
-          =icon('fa', 'image')
-          %input{type: "file", class: "input-box__image__file"}
-      %input{type: "submit", class: "submit-btn"}
-
+      = form_for [@group, @message] do |f|
+        .input-box
+          = f.text_field :content, class: 'input-box__message', placeholder: 'type a message'
+          = f.label :image, class: 'input-box__image-btn' do
+            = icon('fa', 'image')
+            = f.file_field :image, class: 'input-box__image-file'
+        = f.submit 'Send', class: "submit-btn" 

@@ -164,8 +164,9 @@
     .new-message{
       height: 50px;
       width: 100%;
-      display: flex;
-      justify-content: space-between;
+      form{
+        display: flex;
+      }
       
       .input-box{
         height: 50px;
@@ -174,23 +175,23 @@
         background-color: #ffffff;
         display: flex;
         justify-content: space-between;
-        
         position: relative;
-        .input-box__message{
+        &__message{
           height: 50px;
           width: 100%;
           color: #434a54;
           line-height: 50px;
           border-style: none;
+          
         }
         &__image-btn{
           font-size: 1.3rem;
           line-height: 50px;
-          position: absolute;
           right: 10px;
           cursor: pointer;
+          position: absolute;
         }
-        &__image__file{
+        &__image-file{
           display: none;
         }
       }
