@@ -44,7 +44,7 @@
               <p class="lower-message__content">
               ${message.content}
             </p>
-            ${image}
+            <img src =${message.image}>
           </div>
         </div>`
         return html;
